@@ -8,7 +8,7 @@ public class Lab1
         int stringLength = 1000; //defines string length of 1000 codons
         String nucleotide = ""; //String New for collecting the 3-mers
         String nucleotideNew = "";
-        //Keeping track of percentages
+        //Keeping track of percentages/counts
         int aCount = 0;
         int tCount = 0;
         int cCount = 0;
@@ -24,15 +24,15 @@ public class Lab1
         //(1/64 chance of seeing "AAA")
         int aaaCountNew = 0;
         //(0.001728 chance of seeing "AAA")
+        
         //Keeping track of nucleotide loop
         int nucleotideCount = 0;
         int nucleotideCountNew = 0;
 
-        for (int x = 0; x < stringLength; x++) //for loop that initializes at x=0,checks x is within 100 length, and after each increment change
+        for (int x = 0; x < stringLength; x++) //for loop that initializes at x=0,checks x is within length, and after each increment change
         {
             String codon = ""; //String New for collecting a single 3-mer
-            String codonNewPercentages = "";
-            //for (int x1 = 0; x1 < codonLength; x1++)
+            String codonNewPercentages = ""; //for (int x1 = 0; x1 < codonLength; x1++)
             while(nucleotideCount < 3) //loops through until three codons have been selected
             {
                 int dnaSEQ = random.nextInt(4); //chooses integer 0-3
@@ -61,7 +61,7 @@ public class Lab1
                     nucleotideCount = nucleotideCount + 1;
                 }
             }
-            if( codon.equals("AAA") )
+            if( codon.equals("AAA") ) //Checks to see if AAA is the three codon string
             {
                 aaaCount = aaaCount + 1; //counts the number of "aaa" seen
             }
@@ -71,25 +71,25 @@ public class Lab1
             while(nucleotideCountNew < 3) //loops through until three codons have been selected
             {
                 int dnaSEQ = random.nextInt(4); //chooses integer 0-3
-                if (dnaSEQ == 0 && aCountNew < 360)
+                if (dnaSEQ == 0 && aCountNew < 360) //0.12
                 {
                     codonNewPercentages = codonNewPercentages + "A";//if 0 then append A to the string
                     aCountNew = aCountNew + 1;
                     nucleotideCountNew = nucleotideCountNew + 1;
                 }
-                else if (dnaSEQ == 1 && tCountNew < 330)
+                else if (dnaSEQ == 1 && tCountNew < 330) //0.11
                 {
                     codonNewPercentages = codonNewPercentages + "T";//if 1 then append T to the string
                     tCountNew = tCountNew + 1;
                     nucleotideCountNew = nucleotideCountNew + 1;
                 }
-                else if (dnaSEQ == 2 && cCountNew < 1140)
+                else if (dnaSEQ == 2 && cCountNew < 1140) //0.38
                 {
                     codonNewPercentages = codonNewPercentages + "C";//if 2 then append C to the string
                     cCountNew = cCountNew + 1;
                     nucleotideCountNew = nucleotideCountNew + 1;
                 }
-                else if (dnaSEQ == 3 && gCountNew < 1170)
+                else if (dnaSEQ == 3 && gCountNew < 1170) //0.39
                 {
                     codonNewPercentages = codonNewPercentages + "G";//if 3 then append G to the string
                     gCountNew = gCountNew + 1;
