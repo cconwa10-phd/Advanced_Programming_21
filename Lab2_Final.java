@@ -41,11 +41,11 @@ public class Lab2_Final {
             }
             else
             {
-                System.out.println("Incorrect, total of " + count + " correct answers.");
+                System.out.println("Incorrect");
                 System.out.println("Time Elapsed: " + ((endQ - start) / 1000F) + " out of 30 sec");
                 break;
             }
         }
-        System.out.println("Sorry, ran out of time with a total of " + count + " correct answers.");
+        System.out.println("Sorry, ran out of time or answered incorrectly with a total of " + count + " correct answers.");
     }
 }
