@@ -36,13 +36,13 @@ public class Lab2_Final {
             long endQ = System.currentTimeMillis();
             if (SHORT_NAMES[aminoAcid].equals(aminoLetter)) {
                 System.out.println("Correct");
-                System.out.println("Time Elapsed: " + ((endQ - start) / 1000) + " out of 30 sec");
+                System.out.println("Time Elapsed: " + ((endQ - start) / 1000F) + " out of 30 sec");
                 count = count + 1;
             }
             else
             {
                 System.out.println("Incorrect, total of " + count + " correct answers.");
-                System.out.println("Time Elapsed: " + ((endQ - start) / 1000) + " out of 30 sec");
+                System.out.println("Time Elapsed: " + ((endQ - start) / 1000F) + " out of 30 sec");
                 break;
             }
         }
