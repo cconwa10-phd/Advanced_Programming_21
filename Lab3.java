@@ -11,16 +11,16 @@ public class Lab3 {
         }
         if(alphabet.length != weights.length)
         {
-            throw new Exception("the array lengths of the alphabet and weigths are not equal, try again.");
+            throw new Exception("ERROR: the array lengths of the alphabet and weigths are not equal, try again.");
         }
         else if(length <= 0)
         {
-            throw new Exception("The length is insufficient, please provide a different length");
+            throw new Exception("ERROR: The length is insufficient, please provide a different length");
         }
 
         else if(Math.abs(1 - sum) > tolerance)
         {
-            throw new Exception("Please check the weights of each value to ensure they add up close to 1, with a tolerance of 0.02");
+            throw new Exception("ERROR: Please check the weights of each value to ensure they add up close to 1, with a tolerance of 0.02");
         }
         else
         {
