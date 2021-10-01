@@ -1,3 +1,5 @@
+###Checks the Expected vs. Actual values for Labs 1 and 3
+
 from collections import Counter
 import numpy as np
 import math
