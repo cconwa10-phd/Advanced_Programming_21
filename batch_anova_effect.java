@@ -89,6 +89,8 @@ public class batch_anova_effect
 
     public static void main(String[] args) throws Exception
     {
+        //File needed to test is in GitHub//
+        //Change path to where file is//
         String path = "/Users/cconwa10/Desktop/";
         ArrayList<String[]> cleanedFile = read_file_nist(new File(path + "final_peaks_new.csv"), "True", "NIST");
         newBetweenBatchBlank(path + "final_peaks_cleaned.csv", cleanedFile);
