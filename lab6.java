@@ -12,7 +12,7 @@ public class lab6 extends JFrame
 {
     public static final List<Double> primeList = Collections.synchronizedList(new ArrayList<>());
     private static long startTime;
-    private static boolean cancel = false;
+    private static volatile boolean cancel = false;
     //public static final List<Double> sPrimeList = new ArrayList<>();
     private JButton startButton = new JButton("Submit");
     private JButton cancelButton = new JButton("Cancel");
@@ -27,6 +27,7 @@ public class lab6 extends JFrame
         if(value == 1 || value == 2 || value == 3)
         {
             primeList.add(value);
+            //primeNumIn.append(String.valueOf(value) +"\n");
         }
         else
         {
@@ -42,14 +43,22 @@ public class lab6 extends JFrame
             if(prime)
             {
                 primeList.add(value);
+                //primeNumIn.append(String.valueOf(value) +"\n");
             }
         }
     }
     public static void loopCheckIfPrime(double start, double end)
     {
-        for(double j = start; j < end; j++)
+        for (double j = start; j < end; j++)
         {
-            checkIfPrime(j);
+            if(!cancel)
+            {
+                checkIfPrime(j);
+            } else
+            {
+                primeNumIn.append("Process Terminated\n");
+                break;
+            }
         }
     }
 
@@ -58,7 +67,7 @@ public class lab6 extends JFrame
     {
         Semaphore semaphore = new Semaphore(numThreads);
         double range = Math.round(value/numThreads);
-        for(int i = 1; i < numThreads; i++)
+        for(int i = 1; i <= numThreads; i++)
         {
             semaphore.acquire();
             MultiThreadPrime worker = new MultiThreadPrime(numThreads, value, range, i, semaphore);
@@ -86,7 +95,7 @@ public class lab6 extends JFrame
         @Override
         public void run()
         {
-            if(cancel == false)
+            if(!cancel)
             {
                 if(numThreads == 1d)
                 {
